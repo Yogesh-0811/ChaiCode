@@ -10,22 +10,22 @@ async function getWeatherDetailsByCity(cityname = '') {
   return `The current weather of ${cityname} is ${data}`;
 }
 
-async function executeCommand(cmd = '') {
-  return new Promise((res, rej) => {
-    exec(cmd, (error, data) => {
-      if (error) {
-        return res(`Error running command ${error}`);
-      } else {
-        res(data);
-      }
-    });
-  });
-}
+// async function executeCommand(cmd = '') {
+//   return new Promise((res, rej) => {
+//     exec(cmd, (error, data) => {
+//       if (error) {
+//         return res(`Error running command ${error}`);
+//       } else {
+//         res(data);
+//       }
+//     });
+//   });
+// }
 
 
 const TOOL_MAP = {
   getWeatherDetailsByCity: getWeatherDetailsByCity,
-  executeCommand: executeCommand,
+// github update command
 };
 
 const client = new OpenAI();
@@ -77,7 +77,7 @@ async function main() {
     {
       role: 'user',
       content:
-        'In the current directly, read the changes via git and push the changes to github with good commit message',
+        'What is the current weather of pune ?',
     },
   ];
 
